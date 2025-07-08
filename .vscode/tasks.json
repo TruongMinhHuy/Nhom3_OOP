@@ -1,0 +1,146 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build-debug",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "${workspaceFolder}/build",
+                "--config",
+                "Debug"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "dependsOn": "configure-debug",
+            "problemMatcher": ["$gcc"],
+            "detail": "Build the project in debug mode"
+        },
+        {
+            "label": "build-release",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "${workspaceFolder}/build",
+                "--config",
+                "Release"
+            ],
+            "group": "build",
+            "dependsOn": "configure-release",
+            "problemMatcher": ["$gcc"],
+            "detail": "Build the project in release mode"
+        },
+        {
+            "label": "build-tests",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "-C",
+                "${workspaceFolder}/build",
+                "chess_tests"
+            ],
+            "group": "build",
+            "dependsOn": "configure-debug",
+            "problemMatcher": ["$gcc"],
+            "detail": "Build the test executable"
+        },
+        {
+            "label": "configure-debug",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "-B",
+                "${workspaceFolder}/build",
+                "-S",
+                "${workspaceFolder}",
+                "-DCMAKE_BUILD_TYPE=Debug",
+                "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON"
+            ],
+            "group": "build",
+            "problemMatcher": [],
+            "detail": "Configure CMake for debug build"
+        },
+        {
+            "label": "configure-release",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "-B",
+                "${workspaceFolder}/build",
+                "-S",
+                "${workspaceFolder}",
+                "-DCMAKE_BUILD_TYPE=Release",
+                "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON"
+            ],
+            "group": "build",
+            "problemMatcher": [],
+            "detail": "Configure CMake for release build"
+        },
+        {
+            "label": "clean",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "${workspaceFolder}/build",
+                "--target",
+                "clean"
+            ],
+            "group": "build",
+            "problemMatcher": [],
+            "detail": "Clean build artifacts"
+        },
+        {
+            "label": "run-tests",
+            "type": "shell",
+            "command": "ctest",
+            "args": [
+                "--test-dir",
+                "${workspaceFolder}/build",
+                "--verbose"
+            ],
+            "group": "test",
+            "dependsOn": "build-tests",
+            "problemMatcher": [],
+            "detail": "Run all unit tests"
+        },
+        {
+            "label": "format-code",
+            "type": "shell",
+            "command": "find",
+            "args": [
+                "${workspaceFolder}/src",
+                "-name",
+                "*.h",
+                "-o",
+                "-name",
+                "*.cpp",
+                "|",
+                "xargs",
+                "clang-format",
+                "-i"
+            ],
+            "group": "build",
+            "problemMatcher": [],
+            "detail": "Format code using clang-format"
+        },
+        {
+            "label": "static-analysis",
+            "type": "shell",
+            "command": "clang-tidy",
+            "args": [
+                "${workspaceFolder}/src/**/*.cpp",
+                "--",
+                "-I${workspaceFolder}/src",
+                "-I${workspaceFolder}/include"
+            ],
+            "group": "build",
+            "problemMatcher": [],
+            "detail": "Run static analysis with clang-tidy"
+        }
+    ]
+}

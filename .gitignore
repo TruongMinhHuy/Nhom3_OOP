@@ -1,0 +1,129 @@
+# Build directories
+build/
+bin/
+obj/
+out/
+dist/
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+Testing/
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+_deps
+
+# Visual Studio / Visual Studio Code
+.vs/
+# Allow project-specific .vscode configuration
+#.vscode/
+*.vcxproj*
+*.sln
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# JetBrains IDEs
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Xcode
+*.xcodeproj/
+*.xcworkspace/
+
+# Eclipse CDT
+.cproject
+.project
+.settings/
+
+# Compiled Object files
+*.o
+*.obj
+*.ko
+*.elf
+*.ilk
+*.map
+*.exp
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Kernel Module Compile Results
+*.mod*
+*.cmd
+.tmp_versions/
+modules.order
+Module.symvers
+Mkfile.old
+dkms.conf
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Log files
+*.log
+
+# Package files
+*.tar.gz
+*.zip
+*.rar
+
+# Documentation build
+docs/html/
+docs/latex/
+
+# Test coverage
+*.gcov
+*.gcno
+*.gcda
+lcov.info
+coverage/
+
+# Temporary files
+*~
+*.swp
+*.swo
+*.tmp
