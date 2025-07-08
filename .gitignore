@@ -19,7 +19,8 @@ _deps
 
 # Visual Studio / Visual Studio Code
 .vs/
-.vscode/
+# Allow project-specific .vscode configuration
+#.vscode/
 *.vcxproj*
 *.sln
 *.suo
